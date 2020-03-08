@@ -1,2 +1,20 @@
 <app-navbar></app-navbar>
 <p>game-product works!</p>
+
+  <ul class="products">
+    <li *ngFor="let product of products">
+      <a routerLink="/detail/{{product._id}}">
+        <span class="badge">{{product._id}}</span>
+        
+      </a>
+
+      <p>{{product.name}}</p>
+      <p>{{product.category}}</p>
+      <p>{{product.price}}</p>
+      <p>{{product.publisher}}</p>
+      <p>Image : 
+
+          <img src= {{product.image}}>
+      </p>
+    </li>
+  </ul>

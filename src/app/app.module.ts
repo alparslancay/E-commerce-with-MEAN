@@ -13,6 +13,7 @@ import { GameProductComponent } from './game-product/game-product.component';
 import { ErpProductComponent } from './erp-product/erp-product.component';
 import { SpecialRequestProductComponent } from './special-request-product/special-request-product.component';
 import { ShoppingChartComponent } from './shopping-chart/shopping-chart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ShoppingChartComponent } from './shopping-chart/shopping-chart.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
