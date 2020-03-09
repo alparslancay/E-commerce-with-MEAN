@@ -7,9 +7,11 @@
 
 }
 
-.nav-pills{
-  padding-left: 250px;
-}
+@media only screen and (min-width: 1024px) {
+    .nav-pills {
+        padding-left: 250px;
+    }
+  }
 
 .nav-link{
   text-align: center;
