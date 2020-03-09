@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="row">
+
+
+    <div class="col-lg-9">
+  
+      <div class="card mt-4">
+        <img class="card-img-top img-fluid" src={{product.image}} alt="Product Image">
+        <div class="card-body">
+          <h3 class="card-title">{{product.name}}</h3>
+          <h4>{{product.price}}</h4>
+          <p class="card-text">{{product.description}}</p>
+          <p><button mat-raised-button color="accent" (click)="addItemToCart(product, 1)">
+              Add to Cart 
+              <i class="material-icons">
+                add_shopping_cart
+              </i>
+            </button></p>
+        </div>
+      </div>
+      <!-- /.card -->
+  
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Product Publisher
+        </div>
+        <div class="card-body">
+          <p>{{product.publisher}}</p>
+        </div>
+      </div>
+      <!-- /.card -->
+  
+    </div>
+    <!-- /.col-lg-9 -->
+  
+  </div>
