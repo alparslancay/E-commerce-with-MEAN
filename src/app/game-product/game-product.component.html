@@ -1,20 +1,33 @@
 <app-navbar></app-navbar>
-<p>game-product works!</p>
+  <div class="container">
+    <div class="section-header">
+      <h2>Oyun Yazılımları</h2>
+    </div>
+    <div class="new-arrivals-content">
+      <ul class="row">
+        <li *ngFor = "let product of products">
+          <div class="col">
+            <div class="single-new-arrival">
+              <div class="single-new-arrival-bg">
+                <img src={{product.image}} alt="new-arrivals images">
+                <div class="single-new-arrival-bg-overlay"></div>
+                <div class="new-arrival-cart">
+                  <p>
+                    <span class="lnr lnr-cart"></span>
+                    <a href="#">add <span>to </span> cart</a>
+                  </p>
+                  <p class="arrival-review pull-right">
+                    <span class="lnr lnr-heart"></span>
+                    <span class="lnr lnr-frame-expand"></span>
+                  </p>
+                </div>
+              </div>
+              <h4><a href="/detail/{{product._id}}">{{product.name}}</a></h4>
+              <p class="arrival-product-price">{{product.price}} ₺</p>
+            </div>
+          </div>
+       </li>
+      </ul>
+    </div>
+  </div>
 
-  <ul class="products">
-    <li *ngFor="let product of products">
-      <a routerLink="/detail/{{product._id}}">
-        <span class="badge">{{product._id}}</span>
-        
-      </a>
-
-      <p>{{product.name}}</p>
-      <p>{{product.category}}</p>
-      <p>{{product.price}}</p>
-      <p>{{product.publisher}}</p>
-      <p>Image : 
-
-          <img src= {{product.image}}>
-      </p>
-    </li>
-  </ul>
