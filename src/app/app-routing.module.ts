@@ -8,6 +8,7 @@ import { GameProductComponent } from "./game-product/game-product.component";
 import { ErpProductComponent } from "./erp-product/erp-product.component";
 import { SpecialRequestProductComponent } from "./special-request-product/special-request-product.component";
 import { ShoppingChartComponent } from "./shopping-chart/shopping-chart.component";
+import { ProductDetailComponent } from "./product-detail/product-detail.component";
 
 const routes: Routes = [
   {path : '', redirectTo : '/home-page', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path : 'game-product', component: GameProductComponent},
   {path : 'erp-product' , component: ErpProductComponent},
   {path : 'special-request-product', component: SpecialRequestProductComponent},
-  {path : 'shopping-chart', component : ShoppingChartComponent}
+  {path : 'shopping-chart', component : ShoppingChartComponent},
+  {path : 'detail/:id' , component : ProductDetailComponent}
 
 ];
 

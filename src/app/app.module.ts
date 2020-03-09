@@ -14,6 +14,7 @@ import { ErpProductComponent } from './erp-product/erp-product.component';
 import { SpecialRequestProductComponent } from './special-request-product/special-request-product.component';
 import { ShoppingChartComponent } from './shopping-chart/shopping-chart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     GameProductComponent,
     ErpProductComponent,
     SpecialRequestProductComponent,
-    ShoppingChartComponent
+    ShoppingChartComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

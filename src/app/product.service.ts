@@ -25,6 +25,12 @@ export class ProductService {
 
   }
 
+  public getProduct(id : string): Observable<any[]> {
+    return this.http.get<any>(this.baseUrl + '/' + id)
+      .pipe(catchError(this.handleError));
+
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
     if (error.error instanceof Error) {

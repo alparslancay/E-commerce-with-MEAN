@@ -14,4 +14,16 @@ MobilGame.find({},(error,data)=>{
 });
 });
 
+app.get('/api/mobilGames/:id', function(req, res) {
+	const id = req.params.id;
+	MobilGame.findById(id,(error,data)=>{
+		if (error){
+			throw error;
+		}
+	
+		console.log(data);
+		res.end(JSON.stringify(data));
+	});
+	});
+
 module.exports = app;
