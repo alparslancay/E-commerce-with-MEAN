@@ -19,7 +19,7 @@ h2{
       overflow:hidden;
   }
   .single-new-arrival-bg img{
-      width: 300px;
+      width: 320px;
       height: 300px;
       -webkit-transition: .3s linear;
       -moz-transition: .3s linear;
@@ -92,7 +92,6 @@ h2{
   }
   .new-arrival-cart p {
       float: left;
-      margin-left: 20px;
       color: #fff;
       font-size: 12px;
       line-height: 3;
@@ -118,4 +117,16 @@ h2{
       font-weight: 400;
   }
   .single-new-arrival:hover h4 a{color:#e99c2e;}
-  
+
+  .bottom-button-content{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .bottom-button-row-items{
+    background: aquamarine;
+    margin-right: 10px;
+  }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+import { ActivatedRoute } from '@angular/router';
+import { gameProductBaseUrl } from "../base-url";
 @Component({
   selector: 'app-game-product',
   templateUrl: './game-product.component.html',
@@ -8,20 +10,38 @@ import { ProductService } from '../product.service';
 export class GameProductComponent implements OnInit {
 
   products: any;
-  prop: string;
-  constructor(
+  productCount : number;
+  baseUrl : string = gameProductBaseUrl;
+  constructor(    
+    private route: ActivatedRoute,
     private productService : ProductService
     
     ) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    let pageNumber = this.route.snapshot.params['id'];
+    this.getProducts(pageNumber);
+    this.getProductCount();
   }
 
-  getProducts() : void {
-    this.productService.allProducts()
-      .subscribe(products => this.products = products);
+  getProducts(pageNumber) : void {
+    this.productService.allProducts(this.baseUrl)
+      .subscribe(products => this.products = products.slice((pageNumber-1)*9,9*pageNumber));
 
+  }
+
+  getProductCount() : void{
+    this.productService.getProductCount(this.baseUrl)
+    .subscribe(count => this.productCount = count);
+  }
+
+  createPageRange() : number[]{
+    var items: number[] = [];
+ 
+    for(var i = 1; i <= Math.ceil(this.productCount/6); i++){
+       items.push(i);
+    }
+    return items;
   }
 
 }

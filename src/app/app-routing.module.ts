@@ -15,7 +15,7 @@ const routes: Routes = [
   {path : 'navbar', component : NavbarComponent},
   {path : 'home-page', component: HomePageComponent},
   {path : 'trial', component: TrialsComponent},
-  {path : 'game-product', component: GameProductComponent},
+  {path : 'game-product/:id', component: GameProductComponent},
   {path : 'erp-product' , component: ErpProductComponent},
   {path : 'special-request-product', component: SpecialRequestProductComponent},
   {path : 'shopping-chart', component : ShoppingChartComponent},

@@ -26,4 +26,15 @@ app.get('/api/mobilGames/:id', function(req, res) {
 	});
 	});
 
+app.get('/api/mobilGames/get/count', function(req, res) {
+	MobilGame.count({},(error,data)=>{
+		if (error){
+			throw error;
+		}
+	
+		console.log(data);
+		res.end(JSON.stringify(data));
+	});
+	});
+
 module.exports = app;

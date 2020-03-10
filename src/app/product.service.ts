@@ -9,15 +9,14 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 })
 export class ProductService {
 
-  baseUrl: string = 'http://localhost:5000/api/mobilGames';
 
   public constructor(
     private http: HttpClient
     ) {}
 
-  public allProducts(): Observable<any[]> {
+  public allProducts(baseUrl : string): Observable<any[]> {
     return this.http
-          .get<any[]>(this.baseUrl)
+          .get<any[]>(baseUrl)
           .pipe(map((items: any[]) => {
             return items;
           }),
@@ -25,10 +24,15 @@ export class ProductService {
 
   }
 
-  public getProduct(id : string): Observable<any[]> {
-    return this.http.get<any>(this.baseUrl + '/' + id)
+  public getProduct(baseUrl : string , id : string): Observable<any[]> {
+    return this.http.get<any>(baseUrl + '/' + id)
       .pipe(catchError(this.handleError));
 
+  }
+
+  public getProductCount(baseUrl : string) : Observable<number>{
+    return this.http.get<number>(baseUrl + '/get/count')
+    .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
