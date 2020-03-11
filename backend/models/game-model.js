@@ -2,8 +2,8 @@
 
 var mongoose = require('mongoose');
 
-var mobilGameModel = function() {
-	var mobilGameSchema = mongoose.Schema({
+var gameModel = function() {
+	var gameSchema = mongoose.Schema({
 		//_id : Number,
 		category: String,
 		description: String,
@@ -12,8 +12,8 @@ var mobilGameModel = function() {
 		publisher: String,
 	});
 
-	return mongoose.model('Mobil-Game', mobilGameSchema);
+	return mongoose.model('game', gameSchema);
 }
 
 
-module.exports = new mobilGameModel();
+module.exports = new gameModel();

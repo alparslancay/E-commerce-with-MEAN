@@ -1,4 +1,4 @@
-var gameModel = require('../models/mobil-game-model');
+var gameModel = require('../models/game-model');
 
 models = [ {categoryName : "games" , model : gameModel }];
 
