@@ -19,7 +19,7 @@ const routes: Routes = [
   {path : 'erp-product' , component: ErpProductComponent},
   {path : 'special-request-product', component: SpecialRequestProductComponent},
   {path : 'shopping-chart', component : ShoppingChartComponent},
-  {path : 'detail/:id' , component : ProductDetailComponent}
+  {path : ':category/:id' , component : ProductDetailComponent}
 
 ];
 

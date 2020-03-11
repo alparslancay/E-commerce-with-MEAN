@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { gameProductBaseUrl } from "../base-url";
+import { productBaseUrl } from "../base-url";
 
 import { ProductService }  from '../product.service';
 @Component({
@@ -11,7 +11,7 @@ import { ProductService }  from '../product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product : any;
-  baseUrl : string = gameProductBaseUrl;
+  baseUrl : string = productBaseUrl;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -19,13 +19,14 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let category = this.route.snapshot.params['category'];
     let id = this.route.snapshot.params['id'];
-    this.getProduct(id);
+    this.getProduct(category, id);
   }
 
-  getProduct(id : string): void {
+  getProduct(category: string , id : string): void {
 
-    this.productService.getProduct(this.baseUrl,id)
+    this.productService.getProduct(this.baseUrl + "/" + category,id)
       .subscribe((product: any) => this.product = product);
   }
 

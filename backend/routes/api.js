@@ -1,22 +1,32 @@
 var app = require('express')();
 
-var MobilGame = require('../models/mobil-game-model');
+var modelFinder = require('../converters/model-finder');
 
-app.get('/api/mobilGames', function(req, res) {
+app.get('/api/:category', function(req, res) {
+	
+	const category = req.params.category;
 
-MobilGame.find({},(error,data)=>{
+	var model = modelFinder.findModuleWithCategory(category);
+	if ( model != null){
+	model.find({},(error,data)=>{
 	if (error){
 		throw error;
 	}
-
-	console.log(data);
 	res.end(JSON.stringify(data));
 });
+	}
+
+	else{
+		res.end("Wrong GET Request!");
+	}
 });
 
-app.get('/api/mobilGames/:id', function(req, res) {
+app.get('/api/:category/:id', function(req, res) {
+	const category = req.params.category;
 	const id = req.params.id;
-	MobilGame.findById(id,(error,data)=>{
+	var model = modelFinder.findModuleWithCategory(category);
+	if(model !=null){
+	model.findById(id,(error,data)=>{
 		if (error){
 			throw error;
 		}
@@ -24,10 +34,19 @@ app.get('/api/mobilGames/:id', function(req, res) {
 		console.log(data);
 		res.end(JSON.stringify(data));
 	});
+	}
+
+	else{
+		res.end("Wrong GET Request!");
+	}
 	});
 
-app.get('/api/mobilGames/get/count', function(req, res) {
-	MobilGame.count({},(error,data)=>{
+app.get('/api/:category/get/count', function(req, res) {
+	const category = req.params.category;
+
+	var model = modelFinder.findModuleWithCategory(category);
+	if(model != null){
+	model.count({},(error,data)=>{
 		if (error){
 			throw error;
 		}
@@ -35,6 +54,10 @@ app.get('/api/mobilGames/get/count', function(req, res) {
 		console.log(data);
 		res.end(JSON.stringify(data));
 	});
+	}
+	else{
+		res.end("Wrong GET Request!");
+	}
 	});
 
 module.exports = app;

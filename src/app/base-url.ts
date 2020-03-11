@@ -1,1 +1,1 @@
-export const gameProductBaseUrl : string = 'http://localhost:5000/api/mobilGames';
+export const productBaseUrl : string = 'http://localhost:5000/api';

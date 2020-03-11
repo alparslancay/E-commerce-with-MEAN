@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
-import { gameProductBaseUrl } from "../base-url";
+import { productBaseUrl } from "../base-url";
 @Component({
   selector: 'app-game-product',
   templateUrl: './game-product.component.html',
@@ -11,7 +11,8 @@ export class GameProductComponent implements OnInit {
 
   products: any;
   productCount : number;
-  baseUrl : string = gameProductBaseUrl;
+  productCategoryURL : string = "games"
+  baseUrl : string = productBaseUrl + "/"+ this.productCategoryURL;
   constructor(    
     private route: ActivatedRoute,
     private productService : ProductService
