@@ -51,7 +51,6 @@ ul.cart-list > li img {
     border:transparent;
 }
 .s-cate::-webkit-scrollbar {width:5px;}
-.s-cate::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 8px #000;}
 .s-cate::-webkit-scrollbar-thumb {background-color: #e99c2e;}
 
 .single-cart-list {
@@ -127,7 +126,6 @@ ul.cart-list > li.total {
 /*.packages-price */
 
 .attr-nav{
-    float: right;
     display: inline-block;
     margin-left: 13px;
     margin-right: -15px;
@@ -243,3 +241,6 @@ ul.cart-list > li.total > span{
     width: 250px;
     left: -250px;
 }
+ul{
+    list-style-type: none;
+  }

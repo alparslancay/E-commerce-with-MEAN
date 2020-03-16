@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
-import { productBaseUrl } from "../base-url";
+import { ItemService } from "../services/item.service";
+import { ItemTypeService } from "../services/item-type.service";
 @Component({
   selector: 'app-game-product',
   templateUrl: './game-product.component.html',
@@ -11,29 +11,37 @@ export class GameProductComponent implements OnInit {
 
   products: any;
   productCount : number;
-  productCategoryURL : string = "games"
-  baseUrl : string = productBaseUrl + "/"+ this.productCategoryURL;
+  itemTypeName : string;
+  itemTypeID : string;
   constructor(    
     private route: ActivatedRoute,
-    private productService : ProductService
+    private itemService : ItemService,
+    private itemTypeService : ItemTypeService
     
     ) {}
 
   ngOnInit(): void {
+    this.setInitValue();
     let pageNumber = this.route.snapshot.params['id'];
     this.getProducts(pageNumber);
     this.getProductCount();
   }
 
+  setInitValue() : void {
+    this.itemTypeName = "Game";
+    this.itemTypeID = "5e6b95cd53522f2f24a92a7d";
+  }
   getProducts(pageNumber) : void {
-    this.productService.allProducts(this.baseUrl)
+     this.itemTypeService.getType(this.itemTypeName).subscribe((typeID : any) => 
+       this.itemTypeID = typeID['_id']);
+    var tempItemTypeID : string = this.itemTypeID;
+    this.itemService.allProducts(tempItemTypeID)
       .subscribe(products => this.products = products.slice((pageNumber-1)*9,9*pageNumber));
 
   }
 
   getProductCount() : void{
-    this.productService.getProductCount(this.baseUrl)
-    .subscribe(count => this.productCount = count);
+    this.itemService.getCount(this.itemTypeID).subscribe(count => this.productCount = count);
   }
 
   createPageRange() : number[]{

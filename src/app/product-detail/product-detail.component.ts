@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { productBaseUrl } from "../base-url";
 
-import { ProductService }  from '../product.service';
+import { CollectionCommonService }  from '../collection-common.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -14,19 +14,18 @@ export class ProductDetailComponent implements OnInit {
   baseUrl : string = productBaseUrl;
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
+    private commonService: CollectionCommonService,
     private location: Location
   ) { }
 
   ngOnInit(): void {
-    let category = this.route.snapshot.params['category'];
     let id = this.route.snapshot.params['id'];
-    this.getProduct(category, id);
+    this.getProduct(id);
   }
 
-  getProduct(category: string , id : string): void {
+  getProduct(id : string): void {
 
-    this.productService.getProduct(this.baseUrl + "/" + category,id)
+      this.commonService.getProduct(this.baseUrl + "/items",id)
       .subscribe((product: any) => this.product = product);
   }
 

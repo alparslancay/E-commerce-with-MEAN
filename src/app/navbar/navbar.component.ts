@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemTypeService } from "../services/item-type.service" ;
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private itemTypeService : ItemTypeService) { }
+  categories = [];
   ngOnInit(): void {
+    this.itemTypeService.getAllParentType().subscribe((types : any[]) => this.categories = types);
   }
 
 }

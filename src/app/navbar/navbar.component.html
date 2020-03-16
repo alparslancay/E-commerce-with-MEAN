@@ -63,22 +63,13 @@
 
         <a class="nav-item nav-link active" href="#">Anasayfa <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="shopping-chart">Sepetim</a>
-        <a class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="game-product/1">Oyun Yazılımları</a>
-              <a class="dropdown-item" href="erp-product">ERP Yazılımları</a>
-              <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="special-request-product">Size Özel Yazılımlar</a>
-              </div>
-        </a>
-        <a class="nav-item nav-link" href='#' >Eklenecek</a>
-
+            <li *ngFor="let category of categories" class = "bottom-button-row-items">
+                <a class="nav-item nav-link" href="{{category.url_name}}/1">{{category.name}}</a>
+            </li>
       </nav>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Ürün aramak için yazınız" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ürün Ara</button>
       </form>
   </div>
-
 </nav>

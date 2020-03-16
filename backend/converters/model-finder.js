@@ -1,13 +1,20 @@
-var gameModel = require('../models/game-model');
+var itemModel = require('../models/item-model');
+var itemTypeModel = require('../models/item-type-model');
+var publisherModel = require('../models/publisher-model');
 
-models = [ {categoryName : "games" , model : gameModel }];
+models = [ 
+    {collectionName : "items" , model : itemModel }, 
+    {collectionName : "item-types", model : itemTypeModel},
+    {collectionName : "publishers", model : publisherModel}
 
-function findModuleWithCategory(categoryName) {
+];
+
+function findCollectionWithName(collectionName) {
 
     model = null;
 
     models.forEach(element => {
-        if(element.categoryName == categoryName){
+        if(element.collectionName == collectionName){
             model = element.model;
         }
     });
@@ -16,5 +23,5 @@ function findModuleWithCategory(categoryName) {
 }
 
 module.exports = {
-    findModuleWithCategory : function(categoryName) { return findModuleWithCategory(categoryName)}
+    findCollectionWithName : function(collectionName) { return findCollectionWithName(collectionName)}
 };

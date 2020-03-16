@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { throwError as observableThrowError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { productBaseUrl } from "../base-url";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ItemService {
 
+  constructor(private http: HttpClient) { }
 
-  public constructor(
-    private http: HttpClient
-    ) {}
-
-  public allProducts(baseUrl : string): Observable<any[]> {
+  baseUrl : string = productBaseUrl + "/items";
+  
+  public allProducts(id : string): Observable<any[]> {
     return this.http
-          .get<any[]>(baseUrl)
+          .get<any[]>(this.baseUrl + "/find/" + id)
           .pipe(map((items: any[]) => {
             return items;
           }),
@@ -24,24 +24,20 @@ export class ProductService {
 
   }
 
-  public getProduct(baseUrl : string , id : string): Observable<any[]> {
-    return this.http.get<any>(baseUrl + '/' + id)
-      .pipe(catchError(this.handleError));
+  public getCount(id : string): Observable<any> {
+    return this.http
+          .get<any[]>(this.baseUrl + "/count/" + id)
+          .pipe(map((items: any) => {
+            return items;
+          }),
+            catchError(this.handleError));
 
   }
-
-  public getProductCount(baseUrl : string) : Observable<number>{
-    return this.http.get<number>(baseUrl + '/get/count')
-    .pipe(catchError(this.handleError));
-  }
-
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
     if (error.error instanceof Error) {
       let errMessage = error.error.message;
       return observableThrowError(errMessage);
-      // Use the following instead if using lite-server
-      //return Observable.throw(err.text() || 'backend server error');
     }
     return observableThrowError(error || 'Node.js server error');
   }

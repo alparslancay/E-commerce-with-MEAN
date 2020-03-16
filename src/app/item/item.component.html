@@ -1,8 +1,5 @@
 <app-navbar></app-navbar>
   <div class="container">
-    <div class="section-header">
-      <h2>Oyun Yazılımları</h2>
-    </div>
     <div class="new-arrivals-content">
       <ul class="row">
         <li *ngFor = "let product of products">
@@ -33,7 +30,7 @@
     <ul class="row">
       <li *ngFor="let item of createPageRange(); let currentElementIndex='index+1'" class = "bottom-button-row-items">
         <div class = "col">
-        <a href = "/game-product/{{currentElementIndex}}">{{currentElementIndex}}</a>
+        <a href = "/{{itemTypeName}}/{{currentElementIndex}}">{{currentElementIndex}}</a>
       </div>
      </li>
     </ul>

@@ -2,11 +2,11 @@ var app = require('express')();
 
 var modelFinder = require('../converters/model-finder');
 
-app.get('/api/:category', function(req, res) {
+app.get('/api/:collection', function(req, res) {
 	
-	const category = req.params.category;
+	const collection = req.params.collection;
 
-	var model = modelFinder.findModuleWithCategory(category);
+	var model = modelFinder.findCollectionWithName(collection);
 	if ( model != null){
 	model.find({},(error,data)=>{
 	if (error){
@@ -21,10 +21,11 @@ app.get('/api/:category', function(req, res) {
 	}
 });
 
-app.get('/api/:category/:id', function(req, res) {
-	const category = req.params.category;
+app.get('/api/:collection/:id', function(req, res) {
+	const collection = req.params.collection;
+
 	const id = req.params.id;
-	var model = modelFinder.findModuleWithCategory(category);
+	var model = modelFinder.findCollectionWithName(collection);
 	if(model !=null){
 	model.findById(id,(error,data)=>{
 		if (error){
@@ -41,12 +42,12 @@ app.get('/api/:category/:id', function(req, res) {
 	}
 	});
 
-app.get('/api/:category/get/count', function(req, res) {
-	const category = req.params.category;
+app.get('/api/:collection/get/count', function(req, res) {
+	const collection = req.params.collection;
 
-	var model = modelFinder.findModuleWithCategory(category);
+	var model = modelFinder.findCollectionWithName(collection);
 	if(model != null){
-	model.count({},(error,data)=>{
+	model.countDocuments({},(error,data)=>{
 		if (error){
 			throw error;
 		}
@@ -59,5 +60,7 @@ app.get('/api/:category/get/count', function(req, res) {
 		res.end("Wrong GET Request!");
 	}
 	});
+
+
 
 module.exports = app;
