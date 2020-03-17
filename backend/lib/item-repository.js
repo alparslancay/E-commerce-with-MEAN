@@ -46,10 +46,30 @@ app.get('/api/items/count/:itemTypeID', function(req, res) {
         if (error){
             throw error;
         }
-        console.log(data);
         res.end(JSON.stringify(data));
     });
         
+    });
+});
+
+
+app.get('/api/items/get/:sortValue/:itemLimit', function(req,res){
+
+    const sortValue = req.params.sortValue;
+    const valueLimit = req.params.itemLimit;
+
+    filter = {
+        sort : { _id : sortValue } ,
+        limit : parseInt(valueLimit)
+    };
+    itemModel.find({},{item_type : 0, publisher : 0, description : 0}, filter, (error,data) =>{
+
+        if(error){
+            throw error;
+        }
+
+        res.end(JSON.stringify(data));
+
     });
 });
 

@@ -33,6 +33,16 @@ export class ItemService {
             catchError(this.handleError));
 
   }
+
+  public getNewItems(sortValue : Number, itemLimit : Number) : Observable<any[]>{
+    
+    return this.http
+    .get<any[]>(this.baseUrl + "/get/" + sortValue + "/" + itemLimit)
+    .pipe(map((items: any[]) => {
+      return items;
+    }),
+      catchError(this.handleError));
+  }
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
     if (error.error instanceof Error) {

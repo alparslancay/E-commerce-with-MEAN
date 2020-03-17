@@ -2,6 +2,9 @@ h2{
   text-align: center;
   margin-top: 200px;
 }
+ul{
+    list-style-type: none;
+}
 .new-arrivals {padding:85px 0 70px;}
 .new-arrivals-content{margin-top: 80px;}
 
@@ -16,8 +19,8 @@ h2{
     overflow:hidden;
 }
 .single-new-arrival-bg img{
-    width:auto;
-    height:auto;
+    width: 320px;
+    height: 300px;
     -webkit-transition: .3s linear;
     -moz-transition: .3s linear;
     -ms-transition: .3s linear;
