@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemTypeService } from "../services/item-type.service" ;
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,21 @@ import { ItemTypeService } from "../services/item-type.service" ;
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private itemTypeService : ItemTypeService) { }
+  constructor(
+    private itemTypeService : ItemTypeService,
+    private cartService : CartService
+    ) { }
   categories = [];
+  cartItems = [];
+  totalPrice = 0;
   ngOnInit(): void {
     this.itemTypeService.getAllParentType().subscribe((types : any[]) => this.categories = types);
+    this.cartItems = this.cartService.getCart();
   }
+
+  ngAfterContentChecked()  {
+    this.totalPrice = this.cartService.getCartItemsPrice();
+}
+
 
 }
