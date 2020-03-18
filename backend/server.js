@@ -21,6 +21,7 @@ app.all('/', function(req, res, next) {
 app.use(require('./routes/api'));
 app.use(require('./lib/item-repository'));
 app.use(require('./lib/item-type-repository'));
+app.use(require('./lib/user-repository'));
 var port = process.env.PORT || 5000;
 
 app.listen(port, () => {

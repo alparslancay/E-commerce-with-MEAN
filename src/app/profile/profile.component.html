@@ -1,0 +1,64 @@
+<div class= "header">
+    <a class ="navbar-brand"href="#">E-Tick Trade</a>
+</div>
+<div class = "profile-container">
+    <section class = "profile-box box">
+        <div class = "section-header">
+            <h2 class = "head-text">Edit Profile</h2>
+        </div>
+        <ul>
+            <li class = "area e-mail">
+                <div class="row">
+                    <div class="col">
+                        <a>Enter current e-mail</a>
+                        <input [(ngModel)]="currentEMail" class = "form-control" type="email" placeholder="Email" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a>Enter new e-mail</a>
+                        <input [(ngModel)]="newEMail" class = "form-control" type="email" placeholder="Email" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a>Enter current password</a>
+                        <input [(ngModel)]="confirmationPassword" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class = "btn btn-outline-primary" type="submit" (click) = "updateUserEMail()">Save</button>
+                </div>
+            </li>
+
+            <li class = "area password">
+                <div class="row">
+                    <div class="col">
+                        <a>Enter current password</a>
+                        <input [(ngModel)]="currentPassword" class = "form-control" type="email" placeholder="Email" maxlength="50">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a>Enter new password</a>
+                        <input [(ngModel)]="newPassword" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a>Enter new password again</a>
+                        <input [(ngModel)]="checkingPassword" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class = "btn btn-outline-primary" type="submit" (click) = "updateUserPassword()">Login</button>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>

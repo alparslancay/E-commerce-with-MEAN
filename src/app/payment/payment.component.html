@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class = "container payment" *ngIf = "cartItems.length ; else elseBlock">
+    <h2>Total
+        <span>34</span>
+    </h2> 
+    
+    <div class ="container  i.fa.fa-lock">
+
+        <ul>
+            <li>
+                <p>Name On Card</p>
+                    <input [(ngModel)]="cardOwnerName" type="email" class = "card owner-name"placeholder="Card Owner Name" maxlength="50">
+          
+                <p>Card Number</p>
+                    <input [(ngModel)]="cardNumber" type="text" class = "card number"placeholder="1234 5678 9012 3456" maxlength="16">
+            
+                <p>Card Expiration Month</p>
+                    <input [(ngModel)]="expirationMonth" type="text" class = "card expiration-month"placeholder="01" maxlength="2">
+            
+                <p>Card Expiration Year</p>
+                    <input [(ngModel)]="expirationYear" type="text" class = "card expiration-year"placeholder="01" maxlength="2">
+            
+                <p>CARD CVV</p>
+                    <input [(ngModel)]="cardCVV" type="text" class = "card cvv" placeholder="123" maxlength="3">
+            </li>
+
+            <button (click) = "submitPayment()" class = "btn btn-outline-primary payment-button"  type="submit">Submit Payment</button>
+        </ul>
+    </div>
+</div>
+<ng-template #elseBlock class = "empty-cart">
+    <div class = "empty-cart-area">
+        <label>Your cart is empty!</label>
+    </div>
+</ng-template>

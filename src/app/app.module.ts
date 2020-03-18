@@ -10,10 +10,14 @@ import { TrialsComponent } from './trials/trials.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { SpecialRequestProductComponent } from './special-request-product/special-request-product.component';
-import { ShoppingChartComponent } from './shopping-chart/shopping-chart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ItemComponent } from './item/item.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from "@angular/forms";
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +29,16 @@ import { ItemComponent } from './item/item.component';
     NewArrivalsComponent,
     FeaturedProductsComponent,
     SpecialRequestProductComponent,
-    ShoppingChartComponent,
     ProductDetailComponent,
-    ItemComponent
+    ItemComponent,
+    LoginComponent,
+    CartComponent,
+    ProfileComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

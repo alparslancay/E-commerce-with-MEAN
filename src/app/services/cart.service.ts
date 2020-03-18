@@ -32,14 +32,22 @@ export class CartService {
     this.cartItems.forEach(currentItem => {
       this.cartItemsPrice = this.cartItemsPrice + parseFloat(currentItem.price);
     });
-    return this.cartItemsPrice;
+    return parseFloat(this.cartItemsPrice.toFixed(2));
   }
 
-  deleteItem(indexNum : number){
-    const index = this.cartItems.indexOf(indexNum);
-    if (index > -1) {
-      this.cartItems.splice(index, 1);
+  deleteItem(indexNum : number) : boolean{
+
+    if(indexNum>-1){
+      this.cartItems.splice(indexNum, 1);
+      this.localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+      return true;
     }
+    
+    return false;
+  }
+
+  deleteAllItems() : void{
+    this.localStorage.setItem("cartItems",null);
   }
 
 }

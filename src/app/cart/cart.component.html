@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class = "cart">
+<ul class = "item-list" *ngIf = "cartItems.length ; else elseBlock">
+    <div class = "box box-primary" >
+        <h2>Order Summary</h2>
+        <p>Total number of products: {{cartItems.length}}</p>
+        <p>Total price of products: {{totalPrice}}</p>
+        <button class= "btn btn-outline-success buy-button" onclick="window.location.href='/payment'">Buy</button>
+    </div>
+    <li *ngFor = "let item of cartItems; let currentElementIndex='index'"class="cart-list">
+        <div class = "cart-item">
+            <li class = "cart-item-properties">
+                <a class="cart-item-property" href="/items/{{item._id}}"><img src="{{item.image}}" class="cart-thumb" alt="image" /></a>
+                <a class="cart-item-property" href="/items/{{item._id}}"> {{item.name}}</a>
+                <a class="cart-item-property" >{{item.price}}</a>
+                <a class="cart-item-property" (click) = 'cartItemToTrash(currentElementIndex)'><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSegXSayD4o6k0QG_A0ArrJr2fFDPZIFK2O1ZpQfa4VS8cP9b1m" class="cart-trash" alt = "trash-image"></a>
+            </li>
+        </div>
+    </li>
+</ul>
+<ng-template #elseBlock class = "empty-cart">
+<div class = "empty-cart-area">
+    <label>Your cart is empty!</label></div>
+</ng-template>
+
+
+</div>

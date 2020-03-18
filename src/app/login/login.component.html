@@ -1,0 +1,35 @@
+<div class= "header">
+    <a class ="navbar-brand"href="#">E-Tick Trade</a>
+</div>
+<div class = "login-container">
+    <section class = "login-box box">
+        <div class = "section-header">
+            <h2 class = "head-text">Login</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+            <input [(ngModel)]="eMail" class = "form-control" type="email" placeholder="Email" maxlength="50">
+            <p *ngIf= "eMailError">
+                Please enter a valid email address
+            </p>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col">
+            <input [(ngModel)]="password" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+        </div>
+        </div>
+        <div class="text-center">
+        <label class="error-message" role="alert">{{errorMessage}}</label>
+        </div>
+        <div class="text-center">
+        <button class = "btn btn-outline-primary" type="submit" (click) = "login()">Login</button>
+        </div>
+        <div class="text-center">
+        <p>No account yet?</p>
+        </div>
+        <div class="text-center">
+        <button class= "btn btn-outline-primary">Register</button>
+        </div>
+    </section>
+</div>

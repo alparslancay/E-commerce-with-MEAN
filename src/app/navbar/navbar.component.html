@@ -1,19 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand mx-auto" href="#">E-Tick Ticaret</a>
+  <a class="navbar-brand" href="#">E-Tick Trade</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+  <div class = "user-sign">
+    <a href = "/login">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQBH-fOaPZd0fLZycVNjz-CzWpYrChI80LQV3tSu7UurmuU9AOg" class="user-icon" alt="user-icon" width="30px">
+    </a>
+    <a href="/profile" class = "user-sign-text" *ngIf = "user ; else elseSignBlock">{{user.name}}</a>
+    <ng-template #elseSignBlock class = "user-not-sign">
+      <a href="/login" class = "user-sign-text">Sign In</a>
+    </ng-template>
+  </div>
   <!-- Start Atribute Navigation -->
   <div class="attr-nav">
       <ul>
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                  <img src="assets/icons/Shopping Cart.png" class="cart-icon" alt="cart-icon" width="30px">
+              <a href="/cart" class="dropdown-toggle">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Shopping_cart_icon.svg/938px-Shopping_cart_icon.svg.png" class="cart-icon" alt="cart-icon" width="30px">
                   <span class="lnr lnr-cart"></span>
                   <span class="badge badge-bg-1">{{cartItems.length}}</span>
               </a>
-              <ul class="dropdown-menu cart-list s-cate">
+              <ul class="dropdown-menu cart-list s-cate" *ngIf = "cartItems.length; else elseCartBlock">
                   <li *ngFor = "let item of cartItems"class="single-cart-list">
                       <a href="/items/{{item._id}}" class="photo"><img src="{{item.image}}" class="cart-thumb" alt="image" /></a>
                       <div class="cart-list-txt">
@@ -26,9 +34,10 @@
                   </li><!--/.single-cart-list -->
                 <li class="total">
                     <span>Total: {{totalPrice}}</span>
-                    <button class="btn-cart pull-right" onclick="window.location.href='#'">Satın Al!</button>
+                    <button class="btn-cart pull-right" onclick="window.location.href='/payment'">Buy Now!</button>
                 </li>
               </ul>
+              <ng-template #elseCartBlock class="empty-cart"></ng-template>
           </li><!--/.dropdown-->
       </ul>
   </div><!--/.attr-nav-->
@@ -46,8 +55,8 @@
             </li>
       </nav>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Ürün aramak için yazınız" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ürün Ara</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Type for search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
   </div>
 </nav>

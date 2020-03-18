@@ -44,7 +44,7 @@ app.get('/api/:collection/:id', function(req, res) {
 
 app.get('/api/:collection/get/count', function(req, res) {
 	const collection = req.params.collection;
-
+	console.log("OK");
 	var model = modelFinder.findCollectionWithName(collection);
 	if(model != null){
 	model.countDocuments({},(error,data)=>{
@@ -60,6 +60,28 @@ app.get('/api/:collection/get/count', function(req, res) {
 		res.end("Wrong GET Request!");
 	}
 	});
+
+app.put('/api/:collection/update/:id', function(req,res){
+	console.log("UPDATING");
+	console.log(req.body);
+	const collection = req.params.collection;
+	var model = modelFinder.findCollectionWithName(collection);
+
+	if(model!=null){
+		var id = req.params.id;
+
+		model.findByIdAndUpdate({_id : id},req.body,{useFindAndModify: false},(error,data)=>{
+			if(error)
+				throw(error);
+		
+			console.log(data);
+			res.end(JSON.stringify(data));
+			});
+	}
+	else{
+		res.end("Wrong PUT Request!");
+	}
+});
 
 
 

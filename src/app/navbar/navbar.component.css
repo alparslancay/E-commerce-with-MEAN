@@ -6,6 +6,18 @@
 
 
 }
+.navbar-brand{
+    color: #5cb85c;
+    font-size: 30px;
+}
+.user-sign{
+    position: absolute;
+    right: 160px;
+}
+
+.user-sign-text{
+    color: #5cb85c
+}
 
 @media only screen and (min-width: 1024px) {
     .nav-pills {
@@ -16,6 +28,7 @@
 .nav-link{
   text-align: center;
 }
+
 .attr-nav > ul > li > a {
     color: #616060;
     padding: 44px 15px;
@@ -41,10 +54,18 @@
 
 /*.cart-list*/
 ul.dropdown-menu.cart-list {
-    height: 232px;
+    height: auto;
+    max-height: 250px;
     overflow-y: scroll;
     border-radius: 3px;
+    position: absolute;
+    top: 75px;
 }
+
+.attr-nav:hover > ul > li > ul {
+    display: block;
+}
+
 ul.cart-list > li img {
     width: 50px;
     height: 50px;
