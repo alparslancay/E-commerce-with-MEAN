@@ -1,0 +1,68 @@
+<div class= "header">
+    <a class ="navbar-brand"href="#">E-Tick Trade</a>
+</div>
+<div class = "editor-container" *ngIf = "user ; else elseBlock">
+    <section class = "editor-box box">
+        <div class = "section-header">
+            <h2 class = "head-text">Edit Product</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Product Name</p>
+            <input [(ngModel)]="name" class = "form-control" type="text" placeholder="name" maxlength="50">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p>Product Category</p>
+                    <div class = "search-area">
+                        <input [(ngModel)]="itemTypeName" class="searching-customer" type="text"  placeholder="Search" (input)="search($event.target.value)" >
+                        <ul class = "combo-box">
+                            <li *ngFor = "let itemType of searchedItemTypes; let currentElementIndex='index'">
+                                <a class = "item-type-name" (click)="selectItemType(currentElementIndex)">{{itemType.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <p>Product Price</p>
+                <input [(ngModel)]="price" class = "form-control" type="text" placeholder="Price" maxlength="50" >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p>Product Image</p>
+                <img src="{{image}}" class="item-thumb" alt="image" />
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <p>Product Image URL</p>
+            <input [(ngModel)]="image" class = "form-control" type="text" placeholder="Image URL" maxlength="500">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p>Product Description</p>
+                <input [(ngModel)]="description" class = "form-control" type="text" placeholder="Decription" maxlength="200" >
+            </div>
+        </div>
+
+        <div class="text-center">
+        <button class = "btn btn-outline-primary" type="submit" (click) = "saveChanges()">Save</button>
+        </div>
+    </section>
+</div>
+<ng-template #elseBlock class = "empty-item">
+    <div class = "empty-item-area">
+        <label>What is going on there?</label></div>
+</ng-template>

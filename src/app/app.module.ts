@@ -19,6 +19,9 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
+import { PublisherComponent } from './publisher/publisher.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { RegisterComponent } from './register/register.component';
     CartComponent,
     ProfileComponent,
     PaymentComponent,
-    RegisterComponent
+    RegisterComponent,
+    PublisherComponent,
+    EditItemComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

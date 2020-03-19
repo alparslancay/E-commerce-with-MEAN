@@ -73,5 +73,18 @@ app.get('/api/items/get/:sortValue/:itemLimit', function(req,res){
     });
 });
 
+app.get('/api/items/publisher/:id', function(req,res){
+
+    const publisherID = req.params.id;
+    console.log(publisherID);
+    itemModel.find({publisher : publisherID}, (error,data) =>{
+
+        if(error)
+            res.sendStatus(500);
+        
+        res.end(JSON.stringify(data));
+    });
+});
+
 
 module.exports = app;

@@ -32,6 +32,16 @@ export class CollectionCommonService {
     .pipe(catchError(this.handleError));
   }
 
+  public updateProduct(baseUrl : string, item : any) : Observable<any>{
+    return this.http.put(baseUrl + '/update/' + item._id , item)
+    .pipe(catchError(this.handleError));
+  }
+
+  public addProduct(baseUrl : string, item : any) : Observable<any>{
+    return this.http.post(baseUrl +'/add/data', item)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
     if (error.error instanceof Error) {

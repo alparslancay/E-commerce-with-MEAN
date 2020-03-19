@@ -1,0 +1,108 @@
+.page-heading{
+    height: 100px;
+}
+
+.head-text{
+    text-align: center;
+    margin-top: 30px;
+    color : #24a0ed;
+}
+.header{
+    text-align: center;
+}
+.navbar-brand{
+    color: #5cb85c;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.editor-container{
+    display: block;
+    background-color:  whitesmoke;
+    height: 1500px;
+    margin-top: 50px;
+    position: relative;
+    text-align: center;
+    border-style: ridge;
+}
+.editor-box{
+    border-style: ridge;
+    display: inline-block;
+    background-color: white;
+    position: relative;
+    align-items: center;
+    display: inline-block;
+    width: 75%;
+    top : 50px;
+    height: 85%;
+    
+}
+
+.form-control{
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+}
+
+.row{
+    margin-top: 30px;
+}
+
+.text-center{
+    margin-top: 40px;
+}
+.page-heading > h2.head-text{
+
+    position: relative;
+    text-align: center;
+    top: 25px;
+
+}
+
+p{
+    margin-top: 10px;
+}
+
+.btn{
+    width: 50%;
+}
+
+.empty-item-area{
+    margin-top: 300px;
+    text-align: center;
+}
+
+.item-thumb{
+    width: 100px;
+    height: 100px;
+}
+
+.search-area{
+    display: inline-block;
+    margin-bottom: 5%;
+    height: fit-content;
+}
+
+.col{
+    text-align: center;
+}
+
+.combo-box{
+    list-style: none;
+    max-height: 100px;
+    overflow-y: scroll;
+    text-align: center;
+    position: relative;
+    right: 10%;
+}
+
+.item-type-name{
+    border-bottom-color: #5cb85c;
+    border-bottom-style: dotted;
+    border-bottom-width: thin;
+    display: block;
+    background-color: ghostwhite;
+}
+.searching-customer{
+    text-align: center;
+}

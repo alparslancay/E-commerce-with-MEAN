@@ -2,9 +2,6 @@
     height: 100px;
 }
 
-ul{
-    list-style: none;
-}
 .head-text{
     text-align: center;
     margin-top: 30px;
@@ -13,56 +10,46 @@ ul{
 .header{
     text-align: center;
 }
-
-.publisher-only-area{
-    text-align: center;
-}
-
-.publisher-only-header{
-    color : #24a0ed;
-    font-size: 30px;
-    margin-top: 30px;
-}
 .navbar-brand{
     color: #5cb85c;
     font-size: 30px;
     margin-top: 30px;
 }
 
-.profile-container{
+.editor-container{
     display: block;
     background-color:  whitesmoke;
-    height: 1500px;
+    height: 1000px;
     margin-top: 50px;
     position: relative;
     text-align: center;
     border-style: ridge;
 }
-.profile-box{
+.editor-box{
     border-style: ridge;
     display: block;
     background-color: white;
     position: relative;
+    align-items: center;
     display: inline-block;
-    width: 50%;
+    width: 75%;
     top : 50px;
-    height: auto;
-    text-align: center;
-
+    height: 85%;
     
 }
-.area{
-    margin-top: 50px;
-}
-.row{
+
+.form-control{
     display: inline-block;
-
-    width: 75%;
+    text-align: center;
+    width: 50%;
 }
 
+.row{
+    margin-top: 30px;
+}
 
 .text-center{
-    margin-top: 10px;
+    margin-top: 40px;
 }
 .page-heading > h2.head-text{
 
@@ -76,16 +63,16 @@ p{
     margin-top: 10px;
 }
 
-.row{
-    margin-top: 20px;
+.btn{
+    width: 50%;
+}
+
+.empty-item-area{
+    margin-top: 300px;
     text-align: center;
 }
 
-.sign-out-button{
-    margin-top: 10%;
-
-}
-
-.btn.btn-outline-danger{
-    width: 25%;
+.item-thumb{
+    width: 100px;
+    height: 100px;
 }

@@ -44,6 +44,23 @@ export class ItemService {
     }),
       catchError(this.handleError));
   }
+
+  public getPublisherItems(publisherID : string) : Observable<IItem[]>{
+
+    return this.http
+    .get<IItem[]>(this.baseUrl + "/publisher/" + publisherID)
+    .pipe(map((items : IItem[]) => {
+      return items;
+    }),
+      catchError(this.handleError));
+  }
+
+  public deleteItem(itemID : string) : Observable<IItem>{
+    return this.http
+          .get<IItem>(this.baseUrl+ "/delete/"+itemID)
+          .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
     if (error.error instanceof Error) {

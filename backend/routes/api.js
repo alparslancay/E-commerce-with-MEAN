@@ -84,17 +84,43 @@ app.put('/api/:collection/update/:id', function(req,res){
 });
 
 app.post('/api/:collection/add/data', function(req,res){
-	console.log("ADDING");
 
-	var collection = req.params.collection
+	var collection = req.params.collection;
 	var model = modelFinder.findCollectionWithName(collection);
 
 	if(model!=null){
 		var modelx = model(req.body);
 		modelx.save();
 	}
-	res.end("OK");
+
+	else
+		res.end("Wrong PUT Request!");
+
+	res.sendStatus(200);
 })
+
+app.get('/api/:collection/delete/:id', function(req,res){
+
+	var collection = req.params.collection;
+	var model = modelFinder.findCollectionWithName(collection);
+
+	if(model!=null){
+		var id = req.params.id;
+
+		model.deleteOne({_id : id},(error,data)=>{
+			if(error)
+				throw(error);
+		
+			console.log(data);
+			});
+	}
+
+	else
+		res.sendStatus(404);
+
+	res.sendStatus(200);
+
+});
 
 
 

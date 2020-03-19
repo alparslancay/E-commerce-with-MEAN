@@ -1,7 +1,13 @@
 <div class= "header">
     <a class ="navbar-brand"href="#">E-Tick Trade</a>
 </div>
+
 <div class = "profile-container">
+
+    <div class= "publisher-only-area" *ngIf = "user.role == 'publisher'">
+        <a class ="publisher-only-header"href="/publisher">Go To Your Products</a>
+    </div>
+
     <section class = "profile-box box">
         <div class = "section-header">
             <h2 class = "head-text">Edit Profile</h2>

@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<ul class = "item-list" *ngIf = "items.length ; else elseBlock">
+    <div class= box-header>
+        <div class = "box box-link" >
+            <a href="/publisher/add/item"><h2>Add A Product</h2></a>
+        </div>
+
+        <div class = "box box-summary" >
+            <h2>Your Products</h2>
+            <p>Total number of products: {{items.length}}</p>
+        </div>
+    </div>
+    <li *ngFor = "let item of items; let currentElementIndex='index'"class="publisher-list">
+        <div class = "publisher-item">
+            <li class = "publisher-item-properties">
+                <a class="publisher-item-property" href="/publisher/edit/item/{{item._id}}"><img src="{{item.image}}" class="item-thumb" alt="image" /></a>
+                <a class="publisher-item-property" href="/publisher/edit/item/{{item._id}}"> {{item.name}}</a>
+                <a class="publisher-item-property" >{{item.price}}</a>
+                <a class="publisher-item-property" (click) = 'itemToTrash(currentElementIndex)'><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSegXSayD4o6k0QG_A0ArrJr2fFDPZIFK2O1ZpQfa4VS8cP9b1m" class="cart-trash" alt = "trash-image"></a>
+            </li>
+        </div>
+    </li>
+</ul>
+<ng-template #elseBlock class = "empty-list">
+<div class = "empty-list-area">
+    <label>You didn't publish a product!</label></div>
+</ng-template>
