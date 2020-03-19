@@ -1,0 +1,57 @@
+<div class= "header">
+    <a class ="navbar-brand"href="#">E-Tick Trade</a>
+</div>
+<div class = "profile-container">
+    <section class = "profile-box box">
+        <div class = "section-header">
+            <h2 class = "head-text">Edit Profile</h2>
+        </div>
+        <ul>
+
+            <li class = "area name">
+                <div class="row">
+                    <div class="col">
+                        <a>Enter Your Full Name</a>
+                        <input [(ngModel)]="customerFullName" class = "form-control" type="email" placeholder="Your Full Name" maxlength="50">
+                    </div>
+                </div>
+            </li>
+
+            <li class = "area e-mail">
+                <div class="row">
+                    <div class="col">
+                        <a>Enter e-mail</a>
+                        <input [(ngModel)]="eMail" class = "form-control" type="email" placeholder="E-Mail" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a>Enter e-mail again</a>
+                        <input [(ngModel)]="checkingEMail" class = "form-control" type="email" placeholder="E-Mail" maxlength="50">
+                    </div>
+                </div>
+            </li>
+
+            <li class = "area password">
+                <div class="row">
+                    <div class="col">
+                        <a>Enter new password</a>
+                        <input [(ngModel)]="password" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a>Enter new password again</a>
+                        <input [(ngModel)]="checkingPassword" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+                    </div>
+                </div>
+
+                <div class="sign-out-button">
+                    <button class = "btn btn-outline-danger" type="submit" (click) = "register()">Register!</button>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>

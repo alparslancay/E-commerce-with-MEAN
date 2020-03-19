@@ -1,0 +1,81 @@
+.page-heading{
+    height: 100px;
+}
+
+ul{
+    list-style: none;
+}
+.head-text{
+    text-align: center;
+    margin-top: 30px;
+    color : #24a0ed;
+}
+.header{
+    text-align: center;
+}
+.navbar-brand{
+    color: #5cb85c;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.profile-container{
+    display: block;
+    background-color:  whitesmoke;
+    height: 1500px;
+    margin-top: 50px;
+    position: relative;
+    text-align: center;
+    border-style: ridge;
+}
+.profile-box{
+    border-style: ridge;
+    display: block;
+    background-color: white;
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    top : 50px;
+    height: auto;
+    text-align: center;
+
+    
+}
+.area{
+    margin-top: 50px;
+}
+.row{
+    display: inline-block;
+
+    width: 75%;
+}
+
+
+.text-center{
+    margin-top: 10px;
+}
+.page-heading > h2.head-text{
+
+    position: relative;
+    text-align: center;
+    top: 25px;
+
+}
+
+p{
+    margin-top: 10px;
+}
+
+.row{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sign-out-button{
+    margin-top: 10%;
+
+}
+
+.btn.btn-outline-danger{
+    width: 25%;
+}

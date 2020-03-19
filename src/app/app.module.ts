@@ -18,6 +18,7 @@ import { FormsModule } from "@angular/forms";
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PaymentComponent } from './payment/payment.component';
     LoginComponent,
     CartComponent,
     ProfileComponent,
-    PaymentComponent
+    PaymentComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

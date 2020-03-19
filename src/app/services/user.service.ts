@@ -3,6 +3,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { productBaseUrl } from "../base-url";
+import { IUser } from "../model/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +16,33 @@ export class UserService {
 
   }
 
-  public getUserWithTokenID(tokenID : any): Observable<any> {
-
-    return this.http.get<any>(this.baseURL + '/find/tokenID/' + tokenID)
+  public getUserWithTokenID(tokenID : string): Observable<IUser> {
+ 
+    return this.http.get<IUser>(this.baseURL + '/find/tokenID/' + tokenID)
       .pipe(catchError(this.handleError));
 
   }
 
-  public updateUser(user : any) : Observable<any>{
+  public updateUser(user : IUser) : Observable<IUser>{
 
     return this.http.put(this.baseURL+'/update/'+ user._id,user);
   }
 
+  public signOut() : void{
+    localStorage.removeItem("user_token");
+  }
 
-  public getUserWithLoginInfo(eMail : string, password : string) : Observable<any>{
-    return this.http.get<any>(this.baseURL + '/find/e-mail/' + eMail + '/password/'+ password)
+  public signIn(user : IUser) : void{
+    window.localStorage.setItem("user_token",user.user_token);
+  }
+
+  public addUser(user : IUser) : Observable<IUser>{
+    return this.http.post(this.baseURL+'/add/data',user);
+  }
+
+
+  public getUserWithLoginInfo(eMail : string, password : string) : Observable<IUser>{
+    return this.http.get<IUser>(this.baseURL + '/find/e-mail/' + eMail + '/password/'+ password)
     .pipe(catchError(this.handleError));
   }
 

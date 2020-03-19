@@ -5,10 +5,10 @@ Schema = mongoose.Schema;
 
 var userModel = function() {
 	var userSchema = Schema({
-		_id : Schema.Types.ObjectId,
+		_id : {type : Schema.Types.ObjectId, auto : true},
         e_mail: { type : String , required : true},
         password : {type : String, required : true},
-        user_token : Schema.Types.ObjectId,
+        user_token : {type : Schema.Types.ObjectId, auto : true},
         role : {type: String, required : true},
         name : {type: String , required : true}
         

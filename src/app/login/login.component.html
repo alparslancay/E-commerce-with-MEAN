@@ -9,19 +9,15 @@
         <div class="row">
             <div class="col">
             <input [(ngModel)]="eMail" class = "form-control" type="email" placeholder="Email" maxlength="50">
-            <p *ngIf= "eMailError">
-                Please enter a valid email address
-            </p>
             </div>
         </div>
+
         <div class="row">
-        <div class="col">
-            <input [(ngModel)]="password" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+            <div class="col">
+                <input [(ngModel)]="password" class = "form-control" type="password" placeholder="Password" maxlength="50" >
+            </div>
         </div>
-        </div>
-        <div class="text-center">
-        <label class="error-message" role="alert">{{errorMessage}}</label>
-        </div>
+
         <div class="text-center">
         <button class = "btn btn-outline-primary" type="submit" (click) = "login()">Login</button>
         </div>
@@ -29,7 +25,7 @@
         <p>No account yet?</p>
         </div>
         <div class="text-center">
-        <button class= "btn btn-outline-primary">Register</button>
+        <button class= "btn btn-outline-primary" onclick="window.location.href = '/register'">Register</button>
         </div>
     </section>
 </div>
