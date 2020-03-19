@@ -70,3 +70,12 @@ p{
     margin-top: 20px;
     text-align: center;
 }
+
+.sign-out-button{
+    margin-top: 10%;
+
+}
+
+.btn.btn-outline-danger{
+    width: 25%;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from "../services/user.service";
+import { IUser } from "../model/interfaces";
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   @Input() newPassword : string = "anonmouse";
   @Input() checkingPassword : string = "anonmouse";
 
- user : any = null;
+ user : IUser = null;
 
   constructor(private userService : UserService) { }
 
@@ -35,6 +36,11 @@ export class ProfileComponent implements OnInit {
   updateUserPassword() : void{
     this.user.password = this.newPassword;
     this.userService.updateUser(this.user).subscribe();
+  }
+
+  signOut() : void{
+    this.userService.signOut();
+    location.replace('#');
   }
 
 }
