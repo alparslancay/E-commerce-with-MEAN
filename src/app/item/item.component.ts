@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemService } from "../services/item.service";
 import { ItemTypeService } from "../services/item-type.service";
 import { CartService } from "../services/cart.service";
+import { IItem , IItemType } from "../model/interfaces";
 
 @Component({
   selector: 'app-item',
@@ -11,7 +12,7 @@ import { CartService } from "../services/cart.service";
 })
 export class ItemComponent implements OnInit {
 
-  products: any;
+  products: IItem[];
   productCount : number;
   itemTypeName : string;
   itemTypeID : string;
@@ -31,10 +32,10 @@ export class ItemComponent implements OnInit {
   }
   
   getProducts(pageNumber: number, itemTypeName: string) : void {
-    this.itemTypeService.getType(itemTypeName).subscribe((typeID : any) => {
-      this.itemTypeID = typeID['_id'];
+    this.itemTypeService.getType(itemTypeName).subscribe((itemType : IItemType) => {
+      this.itemTypeID = itemType._id;
       this.itemService.getCount(this.itemTypeID).subscribe(count => this.productCount = count);
-      this.itemService.allProducts(typeID['_id'])
+      this.itemService.allProducts(itemType._id)
       .subscribe(products => this.products = products.slice((pageNumber-1)*9,9*pageNumber))});
 
   }
@@ -48,7 +49,7 @@ export class ItemComponent implements OnInit {
     return items;
   }
 
-  addItemToCart(item : any){
+  addItemToCart(item : IItem){
     this.cartService.addItem(item);
   }
 

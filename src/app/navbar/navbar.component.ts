@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemTypeService } from "../services/item-type.service" ;
 import { CartService } from "../services/cart.service";
 import { UserService } from "../services/user.service";
+import { IUser } from "../model/interfaces";
 
 @Component({
   selector: 'app-navbar',
@@ -18,11 +19,11 @@ export class NavbarComponent implements OnInit {
   categories = [];
   cartItems = [];
   totalPrice = 0;
-  user : any = null;
+  user : IUser = null;
   ngOnInit(): void {
-    this.itemTypeService.getAllParentType().subscribe((types : any[]) => this.categories = types);
+    this.itemTypeService.getAllParentType().subscribe((types : IUser[]) => this.categories = types);
     this.cartItems = this.cartService.getCart();
-    this.userService.getUserWithTokenID(localStorage.getItem("user_token")).subscribe((user : any)=>{
+    this.userService.getUserWithTokenID(localStorage.getItem("user_token")).subscribe((user : IUser)=>{
       this.user = user;
     });
   }

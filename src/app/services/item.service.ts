@@ -3,6 +3,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { productBaseUrl } from "../base-url";
+import { IItem } from "../model/interfaces";
 
 
 @Injectable({
@@ -14,31 +15,31 @@ export class ItemService {
 
   baseUrl : string = productBaseUrl + "/items";
   
-  public allProducts(id : string): Observable<any[]> {
+  public allProducts(id : string): Observable<IItem[]> {
     return this.http
-          .get<any[]>(this.baseUrl + "/find/" + id)
-          .pipe(map((items: any[]) => {
+          .get<IItem[]>(this.baseUrl + "/find/" + id)
+          .pipe(map((items: IItem[]) => {
             return items;
           }),
             catchError(this.handleError));
 
   }
 
-  public getCount(id : string): Observable<any> {
+  public getCount(id : string): Observable<number> {
     return this.http
-          .get<any[]>(this.baseUrl + "/count/" + id)
-          .pipe(map((items: any) => {
-            return items;
+          .get<number>(this.baseUrl + "/count/" + id)
+          .pipe(map((count: number) => {
+            return count;
           }),
             catchError(this.handleError));
 
   }
 
-  public getNewItems(sortValue : Number, itemLimit : Number) : Observable<any[]>{
+  public getNewItems(sortValue : Number, itemLimit : Number) : Observable<IItem[]>{
     
     return this.http
-    .get<any[]>(this.baseUrl + "/get/" + sortValue + "/" + itemLimit)
-    .pipe(map((items: any[]) => {
+    .get<IItem[]>(this.baseUrl + "/get/" + sortValue + "/" + itemLimit)
+    .pipe(map((items: IItem[]) => {
       return items;
     }),
       catchError(this.handleError));

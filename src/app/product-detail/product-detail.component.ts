@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { productBaseUrl } from "../base-url";
 import { CartService } from "../services/cart.service";
+import { IItem } from "../model/interfaces";
 
 import { CollectionCommonService }  from '../collection-common.service';
 @Component({
@@ -11,7 +12,7 @@ import { CollectionCommonService }  from '../collection-common.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  item : any;
+  item : IItem = null;
   baseUrl : string = productBaseUrl;
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class ProductDetailComponent implements OnInit {
       .subscribe((item: any) => this.item = item);
   }
 
-  public addItemToCart(item : any): void {
+  public addItemToCart(item : IItem): void {
     this.cartService.addItem(item);
   }
 

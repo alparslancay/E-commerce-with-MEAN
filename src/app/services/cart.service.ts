@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { IItem } from "../model/interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private cartItems = [];
+  private cartItems : IItem[];
   private cartItemsPrice = 0;
   private localStorage = window.localStorage;
   constructor() {
@@ -17,20 +18,20 @@ export class CartService {
       
    }
 
-  addItem(item : any) : void {
+  addItem(item : IItem) : void {
     this.cartItems.push(item);
 
     this.localStorage.setItem("cartItems" , JSON.stringify(this.cartItems));
   }
 
-  getCart() : any[]{
+  getCart() : IItem[]{
     return this.cartItems;
   }
 
   getCartItemsPrice() : number{
     this.cartItemsPrice = 0;
     this.cartItems.forEach(currentItem => {
-      this.cartItemsPrice = this.cartItemsPrice + parseFloat(currentItem.price);
+      this.cartItemsPrice = this.cartItemsPrice + currentItem.price;
     });
     return parseFloat(this.cartItemsPrice.toFixed(2));
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from "../services/item.service";
 import { CartService } from "../services/cart.service";
+import { IItem } from "../model/interfaces";
 
 @Component({
   selector: 'app-new-arrivals',
@@ -13,7 +14,7 @@ export class NewArrivalsComponent implements OnInit {
     private cartService : CartService) 
     { }
 
-  newItems = null;
+  newItems : IItem[];
   private itemLimit = 6;
   private sortValue = -1;
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class NewArrivalsComponent implements OnInit {
     this.itemService.getNewItems(this.sortValue,this.itemLimit).subscribe(items => this.newItems = items);
   }
 
-  addItemToCart(item : any){
+  addItemToCart(item : IItem){
     this.cartService.addItem(item);
   }
 }
