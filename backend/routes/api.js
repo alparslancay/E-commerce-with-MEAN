@@ -83,6 +83,19 @@ app.put('/api/:collection/update/:id', function(req,res){
 	}
 });
 
+app.post('/api/:collection/add/data', function(req,res){
+	console.log("ADDING");
+
+	var collection = req.params.collection
+	var model = modelFinder.findCollectionWithName(collection);
+
+	if(model!=null){
+		var modelx = model(req.body);
+		modelx.save();
+	}
+	res.end("OK");
+})
+
 
 
 module.exports = app;
